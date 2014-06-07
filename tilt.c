@@ -33,6 +33,7 @@ int tilt_line_left(int length, int *line)
 		  line[2]=line[3];
 		  line[3]=0;
 	  }
+	  c++;
   }
   // combine tiles as required
   if (line[3]==line[4]) {
