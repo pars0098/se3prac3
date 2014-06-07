@@ -4,12 +4,16 @@
 int tilt_board_left(int length, int **board) {
 	//Tilt each row of the board left
 	int line[length];
-	for (int i = 0; i < length; i++)
+	int i = 0;
+	while (i < length)
 	{
-		for (int j = 0; j < length; j++) {
+		int j = 0;
+		while(j < length) {
 			line[j] = board[i][j];
+			j++;
 		}
 		tilt_line_left(length, line*);
+		i++;
 	}
 }
 
