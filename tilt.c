@@ -18,6 +18,22 @@ int tilt_line_left(int length,int *line)
 	  }
   }
   // combine tiles as required
+  if (line[3]==line[4]) {
+	  line[3]+=line[4];
+	  line[4]=0;
+  }
+  else {
+	  if (line[2]==line[3]) {
+		  line[2]+=line[3];
+		  line[3]=0;
+	  }
+	  else {
+		  if (line[1]==line[2]) {
+			  line[1]+=line[2];
+			  line[2]=0;
+		  }
+	  }
+  }
 
   return 0;
 }
