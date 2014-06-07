@@ -12,12 +12,12 @@ int tilt_board_left(int length, int **board) {
 			line[j] = board[i][j];
 			j++;
 		}
-		tilt_line_left(length, line*);
+		tilt_line_left(length, line);
 		i++;
 	}
 }
 
-int tilt_line_left(int length,int *line)
+int tilt_line_left(int length, int *line)
 {
   // make sure vector length is sensible
   if (length<1||length>255) return -1;
