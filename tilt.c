@@ -15,6 +15,8 @@ int tilt_board_left(int length, int **board) {
 		tilt_line_left(length, line);
 		i++;
 	}
+
+	return 0;
 }
 
 int tilt_line_left(int length, int *line)
