@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include "2048.h"
 
+int tilt_board_left(int length, int **board) {
+	//Tilt each row of the board left
+	int[length] line;
+	for (int = 0; i < length; i++)
+	{
+		for (int j = 0; j < length; j++) {
+			line[j] = board[i][j];
+		}
+		tilt_line_left(length, line*);
+	}
+}
+
 int tilt_line_left(int length,int *line)
 {
   // make sure vector length is sensible

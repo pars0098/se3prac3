@@ -22,7 +22,7 @@ int main(int argc,char **argv)
     int action=read_input();
     switch(action) {
     case GO_LEFT:
-      tilt_line_left(4,int *line)
+      tilt_board_left(board);
     case GO_RIGHT:
       break;
     case GO_UP:
