@@ -15,7 +15,6 @@ int tilt_board_left(int length, int **board) {
 		tilt_line_left(length, line);
 		i++;
 	}
-
 	return 0;
 }
 
@@ -26,7 +25,7 @@ int tilt_line_left(int length, int *line)
 
   // slide tiles to the left
   int c = 0;
-  while (line[0]==0 || c < length) {
+  while (line[0]==0 && c < length) {
 	  //slide tiles left
 	  if(line[0]==0) {
 		  line[0]=line[1];
