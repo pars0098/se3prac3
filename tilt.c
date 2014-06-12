@@ -39,6 +39,7 @@ int tilt_line_left(int length, int *line)
   if (line[3]==line[4]) {
 	  line[3]+=line[4];
 	  line[4]=0;
+
   }
   else {
 	  if (line[2]==line[3]) {
