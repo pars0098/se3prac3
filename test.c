@@ -103,6 +103,11 @@ int test_tilt_left()
   e|=ttl_vector(4,0,1,1,NULL,4,2,0,0);
   e|=ttl_vector(2,0,1,1,NULL,2,2,0,0);
   e|=ttbl_vector(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Empty board is empty after tilt",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+  e|=ttbl_vector(1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,"Values stay on left after tilt",1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0);
+  e|=ttbl_vector(0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,"Values from right shift left after tilt",1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0);
+  e|=ttbl_vector(0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,"Values from middle shift left after tilt",1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0);
+  e|=ttbl_vector(1,2,4,8,1,2,4,8,1,2,4,8,1,2,4,8,"Distinct values don't combine",1,2,4,8,1,2,4,8,1,2,4,8,1,2,4,8);
+  e|=ttbl_vector(2,2,0,0,2,2,4,4,4,4,0,8,2,2,2,2,"Various Combination Tests 1",4,0,0,0,4,8,0,0,8,8,0,0,4,4,0,0);
   return e;
 }
 
