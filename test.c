@@ -80,6 +80,19 @@ int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
   return line_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,tilt_line_left);
 }
 
+int ttbl_vector(int i1,int i2,int i3,int i4,
+				int i5,int i6,int i7,int i8,
+				int i9,int i10,int i11,int i12,
+				int i13,int i14,int i15,int i16,
+				char *msg,
+				int o1,int o2,int o3,int o4,
+				int o5,int o6,int o7,int o8,
+				int o9,int o10,int o11,int o12,
+				int o13,int o14,int o15,int o16
+				){	
+	return board4_vector_test(i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,msg,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12,o13,o14,o15,o16,tilt_board_left);
+}
+
 int test_tilt_left()
 {
   int e=0;
@@ -92,6 +105,7 @@ int test_tilt_left()
   e|=ttl_vector(0,0,1,1,NULL,2,0,0,0);
   e|=ttl_vector(4,0,1,1,NULL,4,2,0,0);
   e|=ttl_vector(2,0,1,1,NULL,2,2,0,0);
+  e|=ttbl_vector(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Empty board is empty after tilt",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
   return e;
 }
 
