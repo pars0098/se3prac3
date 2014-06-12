@@ -40,7 +40,7 @@ int tilt_line_left(int length, int *line)
 
 	// combine tiles as required
 	c = length - 1;
-	while (c > 1) {
+	while (c > 0) {
 		if (line[c-1]!=0 && line[c-1]==line[c]) {
 			line[c-1]+=line[c];
 			int d = c;
@@ -53,6 +53,7 @@ int tilt_line_left(int length, int *line)
 				}
 				d++;
 			}
+			c--;
 		}
 		c--;
 	}
