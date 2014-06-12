@@ -28,9 +28,11 @@ int tilt_line_left(int length, int *line)
   int p = 0;
   while (c < length) {
 	  //slide tiles left
-		if (line[c]!=0 && p!=c) {
+		if (line[c]!=0) {
 			line[p]=line[c];
-			line[c]=0;
+			if (p!=c) {
+				line[c]=0;
+			}
 			p++;
 		}
 		c++;
