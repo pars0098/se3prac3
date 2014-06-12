@@ -34,25 +34,26 @@ int tilt_line_left(int length, int *line)
 			p++;
 		}
 		c++;
-  }
-  // combine tiles as required
-  if (line[3]==line[4]) {
-	  line[3]+=line[4];
-	  line[4]=0;
+	}
 
-  }
-  else {
-	  if (line[2]==line[3]) {
-		  line[2]+=line[3];
-		  line[3]=0;
-	  }
-	  else {
-		  if (line[1]==line[2]) {
-			  line[1]+=line[2];
-			  line[2]=0;
-		  }
-	  }
-  }
+	// combine tiles as required
+	c = length - 1;
+	while (c > 1) {
+		if (line[c-1]!=0 && line[c-1]==line[c]) {
+			line[c-1]+=line[c];
+			int d = c;
+			while (d < length) {
+				if (d < length-1) {
+					line[d]=line[d+1];
+				}
+				else {
+					line[d]=0;
+				}
+				d++;
+			}
+		}
+		c--;
+	}
 
   return 0;
 }
