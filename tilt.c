@@ -3,27 +3,26 @@
 
 int tilt_board_left(int length, int **board) {
 	//Tilt each row of the board left
-	int line[length];
 	int i = 0;
 	while (i < length)
 	{
+		int line[4];
 		int j = 0;
 		while(j < length) {
-			line[j] = board[i][j];
+			line[j] = board[j][i];
 			j++;
 		}
-		tilt_line_left(length, line);
+		tilt_line(length, line);
 		i++;
 	}
 	return 0;
 }
 
-int tilt_line_left(int length, int *line)
+int tilt_line(int length, int *line)
 {
   // make sure vector length is sensible
   if (length<1||length>255) return -1;
 
-  // slide tiles to the left
   int c = 0;
   int p = 0;
   while (c < length) {
@@ -35,7 +34,7 @@ int tilt_line_left(int length, int *line)
 			}
 			p++;
 		}
-		c++;
+ 		c++;
 	}
 
 	// combine tiles as required

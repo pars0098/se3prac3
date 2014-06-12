@@ -1,6 +1,33 @@
 #include <stdio.h>
 #include "2048.h"
 
+int board4_create_test(int i1,int i2,int i3,int i4,
+					   int i5,int i6,int i7,int i8,
+					   int i9,int i10,int i11,int i12,
+					   int i13,int i14,int i15,int i16
+					   ) {	
+	int **board=board_create(4);
+		board[0][0]=i1; board[1][0]=i2; board[2][0]=i3; board[3][0]=i4;
+		board[0][1]=i5; board[1][1]=i6; board[2][1]=i7; board[3][1]=i8;
+		board[0][2]=i9; board[1][2]=i10; board[2][2]=i11; board[3][2]=i12;
+		board[0][3]=i13; board[1][3]=i14; board[2][3]=i15; board[3][3]=i16;
+
+	if (
+	  (board[0][0]!=i1)||(board[1][0]!=i2)||(board[2][0]!=i3)||(board[3][0]!=i4)||
+	  (board[0][1]!=i5)||(board[1][1]!=i6)||(board[2][1]!=i7)||(board[3][1]!=i8)||
+	  (board[0][2]!=i9)||(board[1][2]!=i10)||(board[2][2]!=i11)||(board[3][2]!=i12)||
+	  (board[0][3]!=i13)||(board[1][3]!=i14)||(board[2][3]!=i15)||(board[3][3]!=i16)
+	  ) {
+		printf("FAILED");
+		return -1;
+	}
+	else
+	{
+		printf("PASSED\n");
+	}
+
+}
+
 int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
                 int o1,int o2,int o3,int o4, int (*func)(int,int *))
 {
@@ -49,7 +76,7 @@ int board4_vector_test(int i1,int i2,int i3,int i4,
 			 i1,i2,i3,o1,o2,o3);
 	}
 	fflush(stdout);
-	func(3,board);
+	func(4,board);
 	if (
 	  (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||(board[3][0]!=o4)||
 	  (board[0][1]!=o5)||(board[1][1]!=o6)||(board[2][1]!=o7)||(board[3][1]!=o8)||
@@ -71,10 +98,12 @@ int board4_vector_test(int i1,int i2,int i3,int i4,
 	return 0;
 }
 
+
+
 int ttl_vector(int i1,int i2,int i3,int i4,char *msg,
                int o1,int o2,int o3,int o4)
 {
-  return line_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,tilt_line_left);
+  return line_vector_test(i1,i2,i3,i4,msg,o1,o2,o3,o4,tilt_line);
 }
 
 int ttbl_vector(int i1,int i2,int i3,int i4,
@@ -102,6 +131,7 @@ int test_tilt_left()
   e|=ttl_vector(0,0,1,1,NULL,2,0,0,0);
   e|=ttl_vector(4,0,1,1,NULL,4,2,0,0);
   e|=ttl_vector(2,0,1,1,NULL,2,2,0,0);
+  e|=board4_create_test(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
   e|=ttbl_vector(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Empty board is empty after tilt",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
   e|=ttbl_vector(1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,"Values stay on left after tilt",1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0);
   e|=ttbl_vector(0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,"Values from right shift left after tilt",1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0);
