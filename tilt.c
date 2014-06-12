@@ -13,6 +13,11 @@ int tilt_board_left(int length, int **board) {
 			j++;
 		}
 		tilt_line(length, line);
+		j = 0;
+		while(j < length) {
+			 board[j][i] = line[j];
+			j++;
+		}
 		i++;
 	}
 	return 0;
