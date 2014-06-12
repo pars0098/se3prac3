@@ -23,6 +23,28 @@ int tilt_board_left(int length, int **board) {
 	return 0;
 }
 
+int tilt_board_right(int length, int **board) {
+	//Tilt each row of the board left
+	int i = 0;
+	while (i < length)
+	{
+		int line[4];
+		int j = 0;
+		while(j < length) {
+			line[j] = board[length-j-1][i];
+			j++;
+		}
+		tilt_line(length, line);
+		j = 0;
+		while(j < length) {
+			 board[length-j-1][i] = line[j];
+			j++;
+		}
+		i++;
+	}
+	return 0;
+}
+
 int tilt_line(int length, int *line)
 {
   // make sure vector length is sensible
