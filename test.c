@@ -21,10 +21,8 @@ int board4_create_test(int i1,int i2,int i3,int i4,
 		printf("FAILED");
 		return -1;
 	}
-	else
-	{
-		printf("PASSED\n");
-	}
+	printf("PASSED\n");
+	return 0;
 
 }
 
